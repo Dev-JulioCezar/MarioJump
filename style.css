@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(0, 0, 0);
+}
+
+.game-board {
+  width: 90%;
+  height: 500px;
+  border: 1px solid #333;
+  margin: 0 auto;
+  margin-top: 5vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#87ceeb, #eff9fd);
+  border-bottom: 15px inset #37da3c;
+  border-radius: 15px;
+  box-shadow: 3px 3px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  position: absolute;
+  width: 450px;
+  top: 5vh;
+  z-index: 2;
+  rotate: 340deg;
+  animation: logo-animation 4s infinite ease-in-out;
+}
+
+.pipe {
+  width: 80px;
+  position: absolute;
+  bottom: 0;
+  animation: none;
+  opacity: 0;
+}
+
+.mario {
+  position: absolute;
+  width: 120px;
+  bottom: 0;
+  opacity: 0;
+}
+
+.mario-dance {
+  position: absolute;
+  width: 120px;
+  bottom: 0;
+  margin-bottom: -25px;
+}
+
+.mario-jump {
+  animation: mario-jump 500ms infinite ease-out;
+}
+
+.mario-jump2 {
+  animation: mario-jump 350ms infinite ease-out;
+}
+
+.game-over {
+  position: absolute;
+  margin-left: -13%;
+  left: 45vw;
+  top: 10%;
+  z-index: 4;
+  display: none;
+  width: 270px;
+  animation: game-over-animation 2s infinite linear;
+}
+
+.clouds {
+  position: absolute;
+  width: 500px;
+  margin-top: 50px;
+  animation: clouds-animation 25s infinite linear;
+}
+
+.play img {
+  position: absolute;
+  width: 220px;
+  left: 44%;
+  top: 52%;
+  filter: contrast(80%);
+  filter: brightness(70%);
+  animation: start-animation 2s infinite ease-in-out;
+}
+
+.reload img {
+  display: none;
+  animation: restart-animation 2s infinite ease-in-out;
+  left: 37%;
+  top: 63%;
+  position: absolute;
+  width: 240px;
+  z-index: 5;
+  filter: contrast(80%);
+  filter: brightness(70%);
+}
+
+.reload img:hover,
+.play img:hover {
+  filter: initial;
+  scale: 1.1;
+  cursor: pointer;
+}
+
+.creditos {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  font-size: 0.675rem;
+}
+
+.level,
+.score {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px;
+  box-shadow: 3px 3px 2px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  z-index: 99;
+}
+
+.level{
+  opacity: 0;
+  top: 0;
+  left: 20px;
+}
+
+.score{
+  border-radius: 10px 0 0 10px;
+  top: 0;
+  right: 0;
+}
+
+@keyframes pipe-animation {
+  from {
+    right: -80px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes pipe-animation2 {
+  from {
+    right: -80px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes mario-jump {
+  0% {
+    bottom: 0;
+  }
+  40% {
+    bottom: 180px;
+  }
+  50% {
+    bottom: 180px;
+  }
+  60% {
+    bottom: 180px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes clouds-animation {
+  from {
+    right: -500px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes start-animation {
+  25% {
+    top: 52%;
+  }
+  50% {
+    top: 50%;
+  }
+  75% {
+    top: 50%;
+  }
+  100% {
+    top: 52%;
+  }
+}
+
+@keyframes restart-animation {
+  25% {
+    top: 63%;
+  }
+  50% {
+    top: 60%;
+  }
+  75% {
+    top: 60%;
+  }
+  100% {
+    top: 63%;
+  }
+}
+
+@keyframes logo-animation {
+  0% {
+    scale:initial;
+  }
+  40% {
+    scale: 1.1;
+  }
+  50% {
+    scale: 1.1;
+  }
+  to {
+    scale: initial;
+  }
+}
+
+@keyframes game-over-animation{
+  25%{
+    scale:1;
+  }
+  50%{
+    scale: 1.1;
+  }
+  75%{
+    scale:1.1;
+  }
+  100% {
+    scale:1;
+  }
+}
+
+@media (min-width: 1350px) {
+  .game-board{
+    width: 1280px;
+  }
+}
